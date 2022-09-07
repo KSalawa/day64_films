@@ -43,7 +43,8 @@ all_films = []
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    all_films=db.session.query(Movie).all()
+    return render_template("index.html", films=all_films)
 
 
 if __name__ == '__main__':
